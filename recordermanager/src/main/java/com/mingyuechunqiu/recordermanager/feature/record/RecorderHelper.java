@@ -100,6 +100,9 @@ public class RecorderHelper implements IRecorderHelper {
         }
         mRecorder.setOutputFile(mOption.getFilePath());
         try {
+            if(mRecorder.isPlaying()){
+                mRecorder.stop();
+            }
             mRecorder.prepare();
             mRecorder.start();
             return true;
